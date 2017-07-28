@@ -97,11 +97,28 @@ public:
    */
   void UpdateLidar(MeasurementPackage meas_package);
 
-  /**
-   * Updates the state and the state covariance matrix using a radar measurement
-   * @param meas_package The measurement at k+1
-   */
+    /**
+     * Updates the state and the state covariance matrix using a radar measurement
+     * @param meas_package The measurement at k+1
+     */
   void UpdateRadar(MeasurementPackage meas_package);
+    /**
+  * Initialice the system with the first sensor read.
+  * @param Sensor Type, meas_package
+  */
+
+    void Inicializar(int sensorType, MeasurementPackage meas_package);
+
+    /**
+ * Updates the state and the state covariance matrix using a radar measurement
+ * @param meas_package The measurement at k+1
+ */
+
+    MatrixXd GenerateAugmentedSigmaPoints();
+
+    void PredictSigmaPoints(MatrixXd SigmaAug, double delta_t);
+
+    void PredictXandP();
 };
 
 #endif /* UKF_H */
