@@ -31,6 +31,8 @@ public:
     ///* predicted sigma points matrix
     MatrixXd Xsig_pred_;
 
+    MatrixXd SigmaAug;
+
     ///* time when the state is true, in us
     long long time_us_;
 
@@ -102,6 +104,23 @@ public:
      * @param meas_package The measurement at k+1
      */
     void UpdateRadar(MeasurementPackage meas_package);
+    /**
+  * Initialice the system with the first sensor read.
+  * @param Sensor Type, meas_package
+  */
+
+    void Inicializar(MeasurementPackage meas_package);
+
+    /**
+ * Updates the state and the state covariance matrix using a radar measurement
+ * @param meas_package The measurement at k+1
+ */
+
+    MatrixXd GenerateAugmentedSigmaPoints();
+
+    void PredictSigmaPoints(MatrixXd SigmaAug, double delta_t);
+
+    void PredictXandP();
 };
 
 #endif /* UKF_H */
