@@ -127,7 +127,7 @@ int main()
     	  
     	  estimations.push_back(estimate);
          // std::cout<<" Estimate     \n"<<estimate<<"\n";
-          std::cout<<" Ground truth \n"<<gt_values<<"\n";
+         // std::cout<<" Ground truth \n"<<gt_values<<"\n";
     	  VectorXd RMSE = tools.CalculateRMSE(estimations, ground_truth);
 
 
