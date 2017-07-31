@@ -48,6 +48,7 @@ UKF::UKF() {
   /**  TODO:Complete the initialization. See ukf.h for other member properties. */
   //Set is_initialized to false.
   is_initialized_ = false;
+
   //Set time_us to zero.
   time_us_ = 0;
   //Size of state vector 5
